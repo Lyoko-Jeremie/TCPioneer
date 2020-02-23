@@ -371,7 +371,9 @@ func UDPDaemon(dstPort int, forward bool) {
 		layer = 0
 	}
 
-	winDivert, err := godivert.WinDivertOpen(filter, layer, 1, 0)
+	//winDivert, err := godivert.WinDivertOpen(filter, layer, 1, 0)
+	winDivert, err := godivert.NewWinDivertHandle(filter)
+	_ = layer
 	if err != nil {
 		if LogLevel > 0 {
 			log.Println(err, filter)
