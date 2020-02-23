@@ -590,6 +590,7 @@ func TCPDaemon(address string, forward bool) {
 						host_offset, host_length = getHost(request)
 					}
 				case 443:
+				case 22:
 					seqNum := binary.BigEndian.Uint32(packet.Raw[ipheadlen+4:])
 					if seqNum == info.SeqNum+1 {
 						if info.Option&OPT_TFO != 0 {
